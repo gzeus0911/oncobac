@@ -4,9 +4,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
 
     if ($data) {
-        if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
-            $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
-        }
         $ip = $_SERVER['REMOTE_ADDR'];
         $data["ipAddress"] = $ip;
         $data["date"] = date("Y-m-d H:i:s");
